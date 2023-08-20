@@ -13,14 +13,15 @@ const AboutUs = () => {
                 <p className='text text-xl'>At BloodBond Network, we are on a mission to make a difference in the world of healthcare and well-being.</p>
             </div>
             </div>
-            <div className="mission-vision grid grid-cols-2	">
-                <div className="mission">
-                    <h2>Mission</h2>
+            <div className="mission-vision grid grid-cols-2 gap-4	mt-10">
+                <div className="mission px-5">
+                    <h2 className='text-center text-2xl text-red-700 font-bold mb-2'>Our Mission</h2>
+                    <p className='font-bold italic text-lg text-center w-4/5 mx-auto border border-red-700 p-5 rounded-2xl'>Empowering Lives Through Lifesaving Blood Donations. Our mission is to bridge hope with action, advocating for and facilitating lifesaving blood donations that impact countless lives. At the heart of our purpose lies the commitment to provide a lifeline of donated blood, driving positive change and saving lives.</p>
                 </div>
-                <div className="vision">
-                    <h2>Vision</h2>
+                <div className="vision px-5">
+                    <h2 className='text-center text-2xl text-red-700 font-bold mb-2'>Our Vision</h2>
+                    <p className='font-bold italic text-center w-4/5 mx-auto  border border-red-700 p-5 rounded-xl text-lg'>Empowering Lives Through Lifesaving Blood Donations. Our mission is to bridge hope with action, advocating for and facilitating lifesaving blood donations that impact countless lives. At the heart of our purpose lies the commitment to provide a lifeline of donated blood, driving positive change and saving lives.</p>
                 </div>
-
             </div>
             
             
