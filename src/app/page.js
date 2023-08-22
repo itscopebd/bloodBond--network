@@ -11,7 +11,6 @@ export default function Home() {
       <Banner></Banner>
       <MedicalInsights></MedicalInsights>
       <EmpoweringDonors></EmpoweringDonors>
-
       <ContactUs></ContactUs>
       <GetInTouch></GetInTouch>
     </main>

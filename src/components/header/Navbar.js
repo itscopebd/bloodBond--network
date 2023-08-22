@@ -61,6 +61,7 @@ const NavItems = () => (
     <li className='text-white font-semibold'><Link href="/">Home</Link></li>
     <li className='text-white font-semibold'><Link href="/about">About</Link></li>
     <li className='text-white font-semibold'><Link href="/">Donors</Link></li>
+    <li className='text-white font-semibold'><Link href="/">Blog</Link></li>
     <li className='text-white font-semibold'><Link href="/">Contact Us</Link></li>
     <li className='text-white font-semibold'><Link href="/dashboard">Dashboard</Link></li>
   </>

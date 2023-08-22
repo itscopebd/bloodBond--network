@@ -3,6 +3,7 @@ import Image from 'next/image';
 import banner from "@/app/asset/AboutPage Banner.jpg";
 import './about.css'
 import MeetTheTeam from '@/components/MeetTheTeam/MeetTheTeam';
+import TestimonialSection from '@/components/Testimonial/Testimonial';
 
 const AboutUs = () => {
     return (
@@ -26,6 +27,7 @@ const AboutUs = () => {
             </div>
 
             <MeetTheTeam></MeetTheTeam>
+            <TestimonialSection></TestimonialSection>
             
             
 
