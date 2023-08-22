@@ -55,8 +55,9 @@ try {
 }
     return (
         <div >
-       
+     
     <div className="hero min-h-screen bg-base-200 ">
+      
   <div className="hero-content flex-col lg:flex-row card dark:text-white  ">
   <div className='w-3/6 '>
     <Image  src={img} alt='login' width={700}/>

@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { UserAuth } from '@/context/authContext';
 
 const Signup = () => {
-let {user, createUser,profileUpdate,googleLogin}= UserAuth()
+let {user, createUser,profileUpdate,googleLogin,facebookLogin}= UserAuth()
   const {
     register,
     handleSubmit,
