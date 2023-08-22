@@ -62,7 +62,7 @@ const NavItems = () => (
     <li className='text-white font-semibold'><Link href="/about">About</Link></li>
     <li className='text-white font-semibold'><Link href="/">Donors</Link></li>
     <li className='text-white font-semibold'><Link href="/">Contact Us</Link></li>
-    <li className='text-white font-semibold'><Link href="/">Dashboard</Link></li>
+    <li className='text-white font-semibold'><Link href="/dashboard">Dashboard</Link></li>
   </>
 );
 
@@ -88,7 +88,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Sign In</a>
+          <button className="btn">
+<Link href={'/login'}>Sign in</Link>
+
+          </button>
         </div>
       </div>
   );
