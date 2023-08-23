@@ -7,7 +7,8 @@ import {  FaTimeline, FaUserCheck, FaWpforms } from 'react-icons/fa6';
 const Sidebar = () => {
     return (
         <aside className='h-full bg-base-300 '>
-             <ul className="menu p-4 w-30 md:w-80 h-4/6  text-base-content">
+          <div  className=''>
+                     <ul className="menu p-4 w-30 md:w-80  text-base-content">
      
       <li>
         <Link href={'/dashboard'}> <FaHome/> Dashboard Home</Link>
@@ -39,17 +40,16 @@ const Sidebar = () => {
       <li>
         <Link href={'/dashboard/user/applydonor'}> <FaWpforms/>Apply Donor</Link>
       </li>
-      
-    </ul>
-    <div className="divider  "></div>
-    <ul className='menu p-4 w-30 md:w-80  h-1/6 text-base-content'>
-        <li>
+        <div className="divider "></div>
+        <li className='pb-5'>
             <Link href={'/'}> <FaSignOutAlt/> Go to Home</Link>
         </li>
     </ul>
-    <button className='btn  drawer-button toggle md:hidden'>
-close
-    </button>
+          </div>
+    
+  
+   
+ 
         </aside>
     );
 };

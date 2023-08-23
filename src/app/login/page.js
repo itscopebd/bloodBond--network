@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { UserAuth } from '@/context/authContext';
+import { ColorRing } from 'react-loader-spinner';
 import Swal from 'sweetalert2';
-import {ColorRing } from 'react-loader-spinner';
 const LoginPage = () => {
   const [loading, setLoading] = useState(false)
   let { user, googleLogin, signIn, facebookLogin } = UserAuth()
@@ -97,10 +97,14 @@ const LoginPage = () => {
 
   }
   return (
-    <div >
-
+    <div className='bg-base-200' >
+<div className='px-5 pt-4 '>
+     <button className='btn w-30'>
+        <Link  href={'/'} className='flex justify-between'>  <span className='ps-1'>Back To Home</span></Link>
+      </button>
+     </div>
       <div className="hero min-h-screen bg-base-200 ">
-
+      
         <div className="hero-content flex-col lg:flex-row card dark:text-white  ">
           <div className='w-3/6 '>
             <Image src={img} alt='login' width={700} />
