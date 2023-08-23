@@ -5,7 +5,7 @@ import logo from '@/app/asset/Blood (2).png'
 
 const Footer = () => {
     return (
-        <footer className="footer mt-10  p-10 bg-black text-white">
+        <footer className="footer mt-5 p-10 bg-black text-white">
   <div>
     <div className="logo flex justify-center items-center">
     <Image className='justify-center' src={logo} width={50} height={20} alt='logo'></Image>

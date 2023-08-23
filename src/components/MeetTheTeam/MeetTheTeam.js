@@ -15,9 +15,9 @@ const MeetTheTeam = () => {
 
     return (
         <div className='mt-10'>
-            <h2 className='text-3xl font-bold text-red-700 text-center mb-5'>Meet Our Team</h2>
+            <h2 className='text-2xl lg:text-3xl font-bold text-red-700 text-center lg:mb-5'>Meet Our Team</h2>
             <div className='flex justify-center'>
-            <div className="cards grid grid-cols-4 gap-4 mx-auto ">
+            <div className="cards grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto">
             <div className="card w-96 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <Image className=' rounded' src={volunteer} alt='volunteer'></Image>
