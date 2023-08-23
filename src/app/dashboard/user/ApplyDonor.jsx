@@ -26,7 +26,7 @@ const positiveNumberValidation = (value) => {
       <h1 className="text-5xl font-bold ">Become a Donor!</h1>
       <p className="py-6">Thank you for considering becoming a donor and joining us in making a significant difference in the lives of those in need.</p>
     </div>
-    <div className="card flex-shrink-0 w-full max-w-sm md:max-w-md shadow-2xl bg-base-100">
+    <div className="card flex-shrink-0 w-full max-w-sm md:max-w-full  shadow-2xl bg-base-100">
       <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">
           <label className="label">
@@ -76,14 +76,85 @@ const positiveNumberValidation = (value) => {
           <input type="text" placeholder="Adress"  {...register("adress",{required:"Please Fill up this feild"})} className="input input-bordered" />
           {errors.adress && <p className="text-error pt-1">{errors.adress.message}</p>}
         </div>
+
+
+
+       <div className='md:flex justify-between'>
+       <div className="form-control">
+          <label className="label">
+            <span className="label-text">Division</span>
+          </label>
+          <select className="select select-bordered w-full "  {...register("division",{ required: "Please select a Division" })}>
+          <option selected value="">
+            Select blood Type
+          </option>
+          <option value="Dhaka">Dhaka</option>
+  <option value="Chattogram">Chattogram</option>
+  <option value="Rajshahi">Rajshahi</option>
+  <option value="Khulna">Khulna</option>
+  <option value="Barishal">Barishal</option>
+  <option value="Sylhet">Sylhet</option>
+  <option value="Rangpur">Rangpur</option>
+  <option value="Mymensingh">Mymensingh</option>
+
+</select>  
+          {errors.division && <p className="text-error pt-1">{errors.division.message}</p>}
+        </div>
+
+
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">District</span>
+          </label>
+          <select className="select select-bordered w-full "  {...register("district",{ required: "Please select a district" })}>
+          <option selected value="">
+            Select blood Type
+          </option>
+  <option value="A+">A+</option>
+  <option value="A-">A-</option>
+  <option value="B+">B+</option>
+  <option value="B-">B-</option>
+  <option value="AB+">AB+</option>
+  <option value="AB-">AB-</option>
+  <option value="O+">O+</option>
+  <option value="O-">O-</option>
+  <option value="N/A">Don't know</option>
+</select>  
+          {errors.district && <p className="text-error pt-1">{errors.district.message}</p>}
+        </div>
+
+
+
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Upzila</span>
+          </label>
+          <select className="select select-bordered w-full "  {...register("upzila",{ required: "Please select a Upzila" })}>
+          <option selected value="">
+            Select blood Type
+          </option>
+  <option value="A+">A+</option>
+  <option value="A-">A-</option>
+  <option value="B+">B+</option>
+  <option value="B-">B-</option>
+  <option value="AB+">AB+</option>
+  <option value="AB-">AB-</option>
+  <option value="O+">O+</option>
+  <option value="O-">O-</option>
+  <option value="N/A">Don't know</option>
+</select>  
+          {errors.upzila && <p className="text-error pt-1">{errors.upzila.message}</p>}
+        </div>
+
+       </div>
       
-      <div className='md:flex  justify-around '>
+      <div>
 
            <div className="form-control">
           <label className="label">
             <span className="label-text">Blood Type </span>
           </label>
-          <select className="select select-bordered w-full max-w-xs"  {...register("blood",{ required: "Please select a blood type" })}>
+          <select className="select select-bordered w-full "  {...register("blood",{ required: "Please select a blood type" })}>
           <option selected value="">
             Select blood Type
           </option>
@@ -105,7 +176,7 @@ const positiveNumberValidation = (value) => {
        <label className="label">
             <span className="label-text">Select Gender</span>
           </label>
-       <select className="select select-bordered w-full  max-w-xs"  {...register("gender",{ required: "Please select a gender" })}>
+       <select className="select select-bordered w-full  "  {...register("gender",{ required: "Please select a gender" })}>
        <option selected value="">
             Select Gender
           </option>

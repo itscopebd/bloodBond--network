@@ -6,6 +6,9 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { UserAuth } from '@/context/authContext';
+import Swal from 'sweetalert2';
+import { FaBackspace, FaBackward } from 'react-icons/fa';
+import { FaHouseChimneyUser } from 'react-icons/fa6';
 const LoginPage = () => {
 
   let {user,googleLogin,signIn,facebookLogin}=UserAuth()
@@ -22,10 +25,21 @@ let router=useRouter()
 try {
   await signIn(data.email,data.password)
  
-  alert('signin success')
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Sign in SuccessFull',
+    showConfirmButton: false,
+    timer: 1500
+  })
   router.push('/')
 } catch (error) {
-  alert(error)
+  Swal.fire({
+    icon: 'error',
+    title: `Opps`,
+    text: `${error.message}`,
+   
+  })
 }
 
 reset()
@@ -34,30 +48,56 @@ reset()
 let handleGoogle= async()=>{
 try {
   await googleLogin()
-  alert('signin success')
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Sign in SuccessFull',
+    showConfirmButton: false,
+    timer: 1500
+  })
   router.push('/')
 
 } catch (error) {
-  alert(error)
+  Swal.fire({
+    icon: 'error',
+    title: `Opps`,
+    text: `${error.message}`,
+   
+  })
 }
 
 }
 let handleFacebook= async()=>{
 try {
   await facebookLogin()
-  alert('signin success')
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Sign in SuccessFull',
+    showConfirmButton: false,
+    timer: 1500
+  })
   router.push('/')
 
 } catch (error) {
-  alert(error)
+  Swal.fire({
+    icon: 'error',
+    title: `Opps`,
+    text: `${error.message}`,
+   
+  })
 }
 
 }
     return (
-        <div >
-     
+        <div className='bg-base-200'>
+     <div className='px-5 pt-4 '>
+     <button className='btn w-30'>
+        <Link href={'/'} className='flex justify-between'> <FaHouseChimneyUser/>  <span className='ps-1'>Back To Home</span></Link>
+      </button>
+     </div>
     <div className="hero min-h-screen bg-base-200 ">
-      
+     
   <div className="hero-content flex-col lg:flex-row card dark:text-white  ">
   <div className='w-3/6 '>
     <Image  src={img} alt='login' width={700}/>
@@ -68,14 +108,19 @@ try {
    <form onSubmit={handleSubmit(onSubmit)} >
 <div className='form-control'>
 <label className='py-2 text-xs md:text-sm' >Email</label>
-<input type="email" placeholder="Type here" className="input input-bordered w-full max-w-xl lg:max-w-md" required  {...register("email")} />
+<input type="email" placeholder="Type here" className="input input-bordered w-full max-w-xl lg:max-w-md"   {...register("email",{required:"Email is required"})} />
+
+{errors.email && <p>{errors.email.message}</p>}
+
 </div>
 <div className='form-control'>
 <label className='py-2 text-xs md:text-sm' >Password</label>
-<input type="password" placeholder="Type here" className="input input-bordered  w-full max-w-xl lg:max-w-md"  {...register("password")}/>
+<input type="password" placeholder="Type here" className="input input-bordered  w-full max-w-xl lg:max-w-md"  {...register("password",{required:"enter password"})}/>
+{errors.password && <p>{errors.password.message}</p>}
+
 </div>
 <div className='form-control'>
-<label className='py-2 text-xs md:text-sm' >
+<label className='py-2 text-xs md:text-base font-extrabold' >
  <Link href={'/signup'}>
  Create New Account
  </Link> 
