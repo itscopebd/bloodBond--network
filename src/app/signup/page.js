@@ -1,15 +1,19 @@
 "use client"
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import img from '../asset/signup.png'
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { UserAuth } from '@/context/authContext';
 import Swal from 'sweetalert2';
-import { FaHouseChimneyUser } from 'react-icons/fa6';
+import { ColorRing } from 'react-loader-spinner';
+
+
 
 const Signup = () => {
+  let router = useRouter()
+  const [loading, setLoading] = useState(false)
   let { user, createUser, profileUpdate, googleLogin, facebookLogin } = UserAuth()
   const {
     register,
@@ -18,11 +22,17 @@ const Signup = () => {
     reset,
     formState: { errors },
   } = useForm()
-  let router=useRouter()
+  
   const onSubmit = async (data) => {
-    console.log(data)
+    setLoading(true)
     try {
       await createUser(data.email, data.password)
+
+
+
+      await profileUpdate({
+        displayName: data.name
+      })
 
       // user information save database 
 
@@ -31,52 +41,72 @@ const Signup = () => {
         headers: {
           "content-type": "application/json"
         },
-        body: JSON.stringify({ email: data.email })
+        body: JSON.stringify({ name: data.name, email: data.email })
       })
       if (response) {
         Swal.fire({
-          position: 'center',
+          position: 'top-end',
           icon: 'success',
-          title: 'Sign in SuccessFull',
+          title: 'Your Registration Success!',
           showConfirmButton: false,
           timer: 1500
         })
-        router.push('/')
+        setLoading(false)
+
+        router.push("/login")
       }
 
 
-      await profileUpdate({
-        displayName: data.name
+
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Your Registration Not Success!',
+
       })
-      } catch (error) {
-        Swal.fire({
-          icon: 'error',
-          title: `Opps`,
-          text: `${error.message}`,
-         
-        })
+
     }
 
     reset()
   }
 
   let handleGoogle = async () => {
+    setLoading(true)
     try {
       await googleLogin()
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Sign in SuccessFull',
-        showConfirmButton: false,
-        timer: 1500
-      })
-      router.push('/')
+        .then(async res => {
+
+          // user information save database 
+
+          const response = await fetch("/api/user", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({ name: user?.displayName, email: user?.email })
+          })
+          if (response) {
+
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Your Registration Success!',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+          setLoading(false)
+          router.push("/login")
+
+        })
+
     } catch (error) {
       Swal.fire({
         icon: 'error',
-        title: `Opps`,
-        text: `${error.message}`,
-       
+        title: 'Oops...',
+        text: 'Your Login Not Success!',
+
       })
     }
 
@@ -96,9 +126,9 @@ const Signup = () => {
     } catch (error) {
       Swal.fire({
         icon: 'error',
-        title: `Opps`,
-        text: `${error.message}`,
-       
+        title: 'Oops...',
+        text: 'Your Login Not Success!',
+
       })
     }
 
@@ -107,7 +137,7 @@ const Signup = () => {
     <div className='bg-base-200'>
        <div className='px-5 pt-4 '>
      <button className='btn w-30'>
-        <Link href={'/'} className='flex justify-between'> <FaHouseChimneyUser/>  <span className='ps-1'>Back To Home</span></Link>
+        <Link href={'/'} className='flex justify-between'>  <span className='ps-1'>Back To Home</span></Link>
       </button>
      </div>
       <div className="hero min-h-screen bg-base-200">
@@ -163,16 +193,38 @@ const Signup = () => {
 
 
                 <div className='text-center py-2'>
-                  <button className='btn btn-neutral md:w-full '>
-                    Submit
-                  </button>
+
+                <button className='btn btn-neutral md:w-full overflow-hidden '> {
+                    loading && loading ? <ColorRing
+                    visible={true}
+                    height="40"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={['#F4F4F3', '#FFF', '#EB4249', '#abbd81', '#849b87']}
+                  /> : "Submit"
+                      
+                    
+                  }
+</button>
                 </div>
 
               </form>
               <div className=" divider  text-sm">OR Sign up with</div>
               <div className=' flex items-center justify-center py-1 '>
                 <button className='btn btn-circle btn-outline btn-primary mx-2' onClick={handleGoogle}>
-                  G
+                 {
+                   loading && loading ? <ColorRing
+                   visible={true}
+                   height="40"
+                   width="80"
+                   ariaLabel="blocks-loading"
+                   wrapperStyle={{}}
+                   wrapperClass="blocks-wrapper"
+                   colors={['#000', '#FFF', '#EB4249', '#abbd81', '#849b87']}
+                 />: "G"
+                 } 
                 </button>
                 <button className='btn btn-circle btn-outline btn-primary mx-2'>
                   in
