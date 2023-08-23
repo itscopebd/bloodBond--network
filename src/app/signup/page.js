@@ -1,12 +1,18 @@
 "use client"
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import img from '../asset/signup.png'
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { UserAuth } from '@/context/authContext';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
+import {ColorRing, Dna, InfinitySpin } from 'react-loader-spinner';
+
 
 const Signup = () => {
+  let router = useRouter()
+  const [loading, setLoading] = useState(false)
   let { user, createUser, profileUpdate, googleLogin, facebookLogin } = UserAuth()
   const {
     register,
@@ -17,9 +23,15 @@ const Signup = () => {
   } = useForm()
 
   const onSubmit = async (data) => {
-    console.log(data)
+    setLoading(true)
     try {
       await createUser(data.email, data.password)
+
+
+
+      await profileUpdate({
+        displayName: data.name
+      })
 
       // user information save database 
 
@@ -28,30 +40,73 @@ const Signup = () => {
         headers: {
           "content-type": "application/json"
         },
-        body: JSON.stringify({ email: data.email })
+        body: JSON.stringify({ name: data.name, email: data.email })
       })
       if (response) {
-        alert("data added Success!")
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your Registration Success!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setLoading(false)
+
+        router.push("/login")
       }
 
 
-      await profileUpdate({
-        displayName: data.name
-      })
-      alert('register success')
+
     } catch (error) {
-      alert(error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Your Registration Not Success!',
+
+      })
+
     }
 
     reset()
   }
 
   let handleGoogle = async () => {
+    setLoading(true)
     try {
       await googleLogin()
+        .then(async res => {
+
+          // user information save database 
+
+          const response = await fetch("/api/user", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({ name: user?.displayName, email: user?.email })
+          })
+          if (response) {
+
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Your Registration Success!',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+          setLoading(false)
+          router.push("/login")
+
+        })
 
     } catch (error) {
-      alert(error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Your Login Not Success!',
+
+      })
     }
 
   }
@@ -62,7 +117,12 @@ const Signup = () => {
       router.push('/')
 
     } catch (error) {
-      alert(error)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Your Login Not Success!',
+
+      })
     }
 
   }
@@ -109,16 +169,38 @@ const Signup = () => {
 
 
                 <div className='text-center py-2'>
-                  <button className='btn btn-neutral md:w-full '>
-                    Submit
-                  </button>
+
+                <button className='btn btn-neutral md:w-full overflow-hidden '> {
+                    loading && loading ? <ColorRing
+                    visible={true}
+                    height="40"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={['#F4F4F3', '#FFF', '#EB4249', '#abbd81', '#849b87']}
+                  /> : "Submit"
+                      
+                    
+                  }
+</button>
                 </div>
 
               </form>
               <div className=" divider  text-sm">OR Sign up with</div>
               <div className=' flex items-center justify-center py-1 '>
                 <button className='btn btn-circle btn-outline btn-primary mx-2' onClick={handleGoogle}>
-                  G
+                 {
+                   loading && loading ? <ColorRing
+                   visible={true}
+                   height="40"
+                   width="80"
+                   ariaLabel="blocks-loading"
+                   wrapperStyle={{}}
+                   wrapperClass="blocks-wrapper"
+                   colors={['#000', '#FFF', '#EB4249', '#abbd81', '#849b87']}
+                 />: "G"
+                 } 
                 </button>
                 <button className='btn btn-circle btn-outline btn-primary mx-2'>
                   in
