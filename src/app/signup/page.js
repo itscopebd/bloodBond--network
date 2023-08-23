@@ -41,7 +41,7 @@ const Signup = () => {
         headers: {
           "content-type": "application/json"
         },
-        body: JSON.stringify({ name: data.name, email: data.email })
+        body: JSON.stringify({ name: data.name, email: data.email,role:"user" })
       })
       if (response) {
         Swal.fire({
@@ -84,7 +84,7 @@ const Signup = () => {
             headers: {
               "content-type": "application/json"
             },
-            body: JSON.stringify({ name: user?.displayName, email: user?.email })
+            body: JSON.stringify({ name: user?.displayName, email: user?.email,role:"user" })
           })
           if (response) {
 

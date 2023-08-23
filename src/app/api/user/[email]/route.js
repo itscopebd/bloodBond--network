@@ -1,13 +1,11 @@
 import { connectToDatabase } from "@/utils/database";
 import { NextResponse } from "next/server";
-
-export const POST = async (request) => {
-
-    const useData = await request.json();
+export const GET = async (request,{params}) => {
+    const { email } = params;
     const { db } = await connectToDatabase();
     try {
-
-        const result = await db.collection('users').insertOne(useData);
+        const query = { email: email };
+        const result = await db.collection('users').find(query).toArray();
         return NextResponse.json(result);
 
     } catch (err) {

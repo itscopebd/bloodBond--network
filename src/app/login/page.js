@@ -49,18 +49,31 @@ const LoginPage = () => {
   let handleGoogle = async () => {
     try {
       await googleLogin()
-        .then(res => {
+        .then( async res => {
 
-          if (res) {
+
+           const response = await fetch("/api/user", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({ name: user?.displayName, email: user?.email,role:"user" })
+          })
+          if (response) {
+
             Swal.fire({
               position: 'top-end',
               icon: 'success',
-              title: 'Your Login Success!',
+              title: 'Your Registration Success!',
               showConfirmButton: false,
               timer: 1500
             })
           }
+        
+         
+
         })
+       
       router.push('/')
 
     } catch (error) {
