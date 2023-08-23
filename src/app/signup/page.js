@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { UserAuth } from '@/context/authContext';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
-import {ColorRing, Dna, InfinitySpin } from 'react-loader-spinner';
+import {ColorRing } from 'react-loader-spinner';
 
 
 const Signup = () => {
