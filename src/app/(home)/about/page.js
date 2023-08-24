@@ -4,6 +4,7 @@ import banner from "@/app/asset/AboutPage Banner.jpg";
 import './about.css'
 import MeetTheTeam from '@/components/MeetTheTeam/MeetTheTeam';
 import TestimonialSection from '@/components/Testimonial/Testimonial';
+import OurStory from '@/components/OurStory/OurStory';
 
 const AboutUs = () => {
     return (
@@ -19,19 +20,16 @@ const AboutUs = () => {
             <div className="mission-vision grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4	mt-10">
                 <div className="mission px-5">
                     <h2 className='text-center text-2xl lg:text-3xl text-red-700 font-bold mb-2'>Our Mission</h2>
-                    <p className=' italic text-md lg:text-xl text-center w-4/5 mx-auto border border-red-700 p-5 rounded-2xl'>Empowering Lives Through Lifesaving Blood Donations. Our mission is to bridge hope with action, advocating for and facilitating lifesaving blood donations that impact countless lives. At the heart of our purpose lies the commitment to provide a lifeline of donated blood, driving positive change and saving lives.</p>
+                    <p className=' italic text-md lg:text-xl text-center w-3/4 mx-auto border border-red-700 p-5 rounded-2xl'>Empowering Lives Through Lifesaving Blood Donations. Our mission is to bridge hope with action, advocating for and facilitating lifesaving blood donations that impact countless lives. At the heart of our purpose lies the commitment to provide a lifeline of donated blood, driving positive change and saving lives.</p>
                 </div>
                 <div className="vision px-5">
                     <h2 className='text-center text-2xl lg:text-3xl text-red-700 font-bold mb-2'>Our Vision</h2>
-                    <p className=' italic text-center w-4/5 mx-auto  border border-red-700 p-5 rounded-xl text-md lg:text-xl'>Empowering Lives Through Lifesaving Blood Donations. Our mission is to bridge hope with action, advocating for and facilitating lifesaving blood donations that impact countless lives. At the heart of our purpose lies the commitment to provide a lifeline of donated blood, driving positive change and saving lives.</p>
+                    <p className=' italic text-center w-3/4 mx-auto  border border-red-700 p-5 rounded-xl text-md lg:text-xl'>Empowering Lives Through Lifesaving Blood Donations. Our mission is to bridge hope with action, advocating for and facilitating lifesaving blood donations that impact countless lives. At the heart of our purpose lies the commitment to provide a lifeline of donated blood, driving positive change and saving lives.</p>
                 </div>
             </div>
-
+            <OurStory></OurStory>
             <MeetTheTeam></MeetTheTeam>
             <TestimonialSection></TestimonialSection>
-            
-            
-
         </div>
     );
 };
