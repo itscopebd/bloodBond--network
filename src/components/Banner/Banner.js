@@ -70,7 +70,7 @@ const Banner = () => {
 
       {/* about section */}
 
-     <Aboutus></Aboutus>
+      <Aboutus></Aboutus>
     </>
   );
 };
