@@ -1,12 +1,9 @@
 
-"use client"
-import { AuthProvider } from '@/context/authContext'
+
+
 import './globals.css'
 import { Inter } from 'next/font/google';
-import { QueryClient, QueryClientProvider} from '@tanstack/react-query'
-
-const queryClient = new QueryClient()
-
+import { AuthProvider } from '@/context/authContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -21,9 +18,9 @@ export default function RootLayout({ children }) {
 
         <AuthProvider>
 
-          <QueryClientProvider client={queryClient}>
+         
             {children}
-          </QueryClientProvider>
+        
 
         </AuthProvider>
 
