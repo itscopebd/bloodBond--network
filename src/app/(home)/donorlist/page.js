@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Header = () => {
+const Alldonor = () => {
     return (
         <div>
-           <h3>this is Header</h3> 
+            <h1>All donor</h1>
         </div>
     );
 };
 
-export default Header;
+export default Alldonor;
