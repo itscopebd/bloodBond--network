@@ -2,15 +2,15 @@ import React from "react";
 
 const MedicalInsights = () => {
   return (
-    <section>
-      <h1 className="text-5xl text-center font-bold text-red-500 pt-12">
+    <section className="mt-20">
+      <h1 className="text-5xl text-center font-bold text-red-500 ">
         Medical Insights
       </h1>
       <p className="text-gray-500 pt-10 text-center">
         Explore a handpicked collection of medical insights created by experts.
-        <br /><br />Gain deeper insights into blood donation and its effects.{" "}
+        <br />Gain deeper insights into blood donation and its effects.{" "}
       </p>
-      <div className="grid w-[90%] mx-auto gap-5 mt-10 md:grid-cols-2 lg:grid-cols-3 ">
+      <div className="grid w-[90%] mx-auto gap-5 mt-10 md:grid-cols-2 lg:grid-cols-3 container ">
         <div className="card w-auto bg-base-100 shadow-xl">
           <div className="avatar">
             <div className="w-auto rounded">
