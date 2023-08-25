@@ -12,7 +12,7 @@ const EmpoweringDonors = () => {
         future of others.
       </p>
       <div className="relative z-10 h-full w-full mx-auto">
-      <div className=' h-full w-full hover:bg-black  hover:bg-opacity-50  relative'>
+      <div className=' h-full w-full hover:bg-black  hover:bg-opacity-50  relative '>
 
         
 <img src= "https://i.ibb.co/QdWFfpv/donate.jpg" className='absolute w-full h-full hover:opacity-70 hover:mix-blend-overlay lg:object-cover' alt="" />
