@@ -15,7 +15,7 @@ const EmpoweringDonors = () => {
       <div className=' h-full w-full hover:bg-black  hover:bg-opacity-50  relative '>
 
         
-<img src= "https://i.ibb.co/QdWFfpv/donate.jpg" className='absolute w-full h-full hover:opacity-70 hover:mix-blend-overlay lg:object-cover' alt="" />
+<img src= "https://i.ibb.co/QdWFfpv/donate.jpg" className='absolute w-full h-full  hover:mix-blend-overlay lg:object-cover' alt="" />
 
 <div className='  flex justify-center items-center'>
   <div className='py-96'>
