@@ -45,7 +45,7 @@ const Sidebar = ({ data }) => {
                 
               <>
               <li><Link href={'/dashboard/user'}> <FaHome /> User Dashboard</Link></li>
-              <li><Link href={'/dashboard'}> <FaHome /> Update Profile</Link></li>
+              <li><Link href={'/dashboard/user/update-profile'}> <FaHome /> Update Profile</Link></li>
               <li><Link href={'/dashboard/user/applydonor'}> <FaHome /> Apply Donation</Link></li>
               
 
