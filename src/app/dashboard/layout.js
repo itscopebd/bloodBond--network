@@ -3,11 +3,6 @@ import React, { useContext } from 'react';
 import Sidebar from './Sidebar';
 import { useQuery} from '@tanstack/react-query';
 import { AuthContext } from '@/context/authContext';
-
-
-
-
-
 const DashBoardRoot = ({ children }) => {
  
 const {user}=useContext(AuthContext);
