@@ -31,8 +31,8 @@ const EmpoweringDonors = () => {
               </h2>
               <p>Explore the fascinating world of blood type and their compatibility.
                 Learn how matching blood types during transfusions can save lives ans ensure successful medical interventions
-            </p>
-              
+              </p>
+
             </div>
           </div>
           <div className="card w-96 bg-base-100 shadow-xl">
@@ -47,14 +47,14 @@ const EmpoweringDonors = () => {
               </h2>
               <p>Explore the fascinating world of blood type and their compatibility.
                 Learn how matching blood types during transfusions can save lives ans ensure successful medical interventions
-            </p>            
+              </p>
             </div>
           </div>
 
-          
+
         </div>
         <div className="flex justify-center">
-        <button className="btn btn-outline btn-error">See more</button>
+          <button className="btn btn-outline btn-error">See more</button>
 
         </div>
       </div>
