@@ -10,12 +10,12 @@ const queryClient = new QueryClient()
 
 const DashBoardRoot = ({ children }) => {
 
-const {user}=useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-const {data:data=[],fefetch}= useQuery(['data'], async()=>{
-  const res = await fetch(`http://localhost:3000/api/user/${user?.email}`)
-  return res.json()
-})
+  const { data: data = [], fefetch } = useQuery(['data'], async () => {
+    const res = await fetch(`http://localhost:3000/api/user/${user?.email}`)
+    return res.json()
+  })
 
 
   return (
@@ -35,6 +35,7 @@ const {data:data=[],fefetch}= useQuery(['data'], async()=>{
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
           <Sidebar data={data}></Sidebar>
+
         </div>
       </div>
     </div>
