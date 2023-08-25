@@ -5,6 +5,7 @@ import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
 import 'react-awesome-slider/dist/custom-animations/cube-animation.css';
 import { FcSearch } from "react-icons/fc";
+import Aboutus from './Aboutus';
 import './Banner.css'
 
 
@@ -120,7 +121,7 @@ const Banner = () => {
 
       {/* about section */}
 
-      <section className="mt-20 w-[90%] grid lg:grid-cols-2 gap-5 mx-auto container">
+      <section className="mt-16 w-[90%] grid grid-cols-2 gap-5 mx-auto">
         
           <div className="avatar">
             <div className="w-auto rounded">
@@ -128,7 +129,7 @@ const Banner = () => {
             </div>
           </div>
         
-        <div className='my-auto'>
+        <div>
           <h1 className="text-5xl text-center font-bold text-red-500 pt-12">
             About Us
           </h1>
