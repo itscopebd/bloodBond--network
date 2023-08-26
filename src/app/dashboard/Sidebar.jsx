@@ -6,12 +6,7 @@ import { FaTimeline, FaUserCheck, FaWpforms } from 'react-icons/fa6';
 
 const Sidebar = ({ data }) => {
   const role = data[0]?.role;
-  if (role === "user") {
-    console.log("thik")
-  } else if (role === "admin") {
-    console.log("admin")
-  }
-
+ 
   return (
     <aside className='h-full bg-base-300 '>
       <div className=''>
